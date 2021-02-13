@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<h1></h1>
+<head>
+</head>
+
+<body>
+
+// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest()
+
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'https://api.sunrise-sunset.org/json?lat=34.1283&lng=-117.2087&date=today', true)
+request.send();
+
+request.onreadystatechange=function() {
+if(this.readyState==4 && this.status==200)
+  {
+	document.write("<h1>API TEST</h1>");
+	document.write("<h4>Raw JSON</h4>");
+	document.write (request.responseText);
+	document.write("<h4>Parsed Values</h4>");
+	var data=JSON.parse(request.responseText);
+	document.write("<b>Sunrise(UTC):</b> "+ data.results.sunrise)
+	document.write("<br/>")
+	document.write("<b>Sunset(UTC):</b> "+ data.results.sunset)
+	document.write("<br/>")
+
+	  // Begin accessing JSON data here
+  }
+}
+
+  </script>
+</body>
+
+</html>
