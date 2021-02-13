@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<h1>Al's JSON Test</h1>
+<head>
+</head>
+
+<body>
+
+ 
+  <script type="text/javascript">
+const jsonString='{"Title":"-","FirstName":"-"}';
+
+var obj=JSON.parse(jsonString);
+document.write ("BEFORE: " + JSON.stringify(obj));
+document.write("<br/>")
+ //setting properties of object
+obj.Title="Mr.";
+obj.FirstName="David";
+
+ // added on-the-fly to the object
+obj.LastName="Turner";
+obj.Foo="foo";
+//show that it's an object
+document.write(obj);
+document.write("<br/>")
+
+document.write("EXAMPLE WITH OBJECT: " + obj.Title +" " +obj.FirstName+ " " + obj.LastName );
+document.write("<br/>")
+document.write("AFTER: " + JSON.stringify(obj));
+document.write("<br/>")
+
+  </script>
+</body>
+
+</html>
